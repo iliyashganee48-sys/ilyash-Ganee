@@ -1,1 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<title>Ilyash Ganee | PCB Repair & Appliance Store</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+color:#172033;
+padding-bottom:80px;
+}
+
+button{
+cursor:pointer;
+}
+
+.top{
+height:64px;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 14px;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 2px 12px #00000012;
+}
+
+.menu{
+font-size:24px;
+border:0;
+background:none;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:800;
+font-size:17px;
+}
+
+.logoBox{
+width:38px;
+height:38px;
+background:#0969d7;
+color:white;
+border-radius:11px;
+display:grid;
+place-items:center;
+font-size:12px;
+}
+
+.cartTop{
+border:0;
+background:none;
+font-size:22px;
+position:relative;
+}
+
+.cartNumber{
+position:absolute;
+right:-5px;
+top:-7px;
+background:#ef3f45;
+color:white;
+font-size:10px;
+min-width:17px;
+height:17px;
+border-radius:50%;
+display:grid;
+place-items:center;
+}
+
+.hero{
+background:linear-gradient(135deg,#0869d9,#063d83);
+color:white;
+padding:25px 16px 30px;
+border-radius:0 0 25px 25px;
+}
+
+.heroLabel{
+display:inline-block;
+background:white;
+color:#0869d9;
+padding:7px 11px;
+border-radius:20px;
+font-size:10px;
+font-weight:bold;
+}
+
+.hero h1{
+font-size:30px;
+line-height:1.1;
+margin:16px 0 10px;
+}
+
+.hero p{
+font-size:13px;
+line-height:1.6;
+color:#dceaff;
+}
+
+.heroButtons{
+margin-top:20px;
+display:flex;
+gap:8px;
+}
+
+.primary{
+background:white;
+color:#0869d9;
+border:0;
+padding:12px 16px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.secondary{
+background:#ffffff1d;
+color:white;
+border:1px solid #ffffff55;
+padding:12px 16px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.searchBox{
+display:flex;
+margin:-20px 14px 10px;
+position:relative;
+z-index:10;
+}
+
+.searchBox input{
+flex:1;
+border:1px solid #ddd;
+padding:15px;
+font-size:14px;
+border-radius:14px 0 0 14px;
+outline:none;
+background:white;
+}
+
+.searchBox button{
+width:55px;
+border:0;
+background:white;
+border-left:1px solid #eee;
+border-radius:0 14px 14px 0;
+font-size:19px;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+padding:8px 14px;
+}
+
+.sectionTitle{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin:22px 0 12px;
+}
+
+.sectionTitle h2{
+font-size:19px;
+}
+
+.view{
+border:0;
+background:none;
+color:#0869d9;
+font-weight:bold;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:9px;
+}
+
+.category{
+background:white;
+border:1px solid #e4e8ef;
+border-radius:15px;
+padding:13px 5px;
+text-align:center;
+transition:.2s;
+}
+
+.category:active{
+transform:scale(.96);
+}
+
+.categoryIcon{
+font-size:28px;
+margin-bottom:7px;
+}
+
+.category b{
+display:block;
+font-size:11px;
+}
+
+.category small{
+font-size:9px;
+color:#7b8492;
+}
+
+.promo{
+margin:22px 0;
+background:linear-gradient(110deg,#096bd9,#1551a5);
+color:white;
+padding:19px;
+border-radius:18px;
+}
+
+.promo h2{
+font-size:18px;
+margin-bottom:6px;
+}
+
+.promo p{
+font-size:12px;
+line-height:1.5;
+color:#dceaff;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.product{
+background:white;
+border:1px solid #e2e7ef;
+border-radius:15px;
+overflow:hidden;
+}
+
+.productImage{
+height:135px;
+background:#edf4ff;
+display:grid;
+place-items:center;
+font-size:48px;
+}
+
+.productBody{
+padding:12px;
+}
+
+.productBody small{
+color:#7b8492;
+font-size:10px;
+}
+
+.productBody h3{
+font-size:13px;
+line-height:1.4;
+margin:6px 0;
+}
+
+.price{
+font-weight:bold;
+font-size:16px;
+}
+
+.oldPrice{
+font-size:10px;
+color:#9299a4;
+text-decoration:line-through;
+margin-left:5px;
+}
+
+.productButtons{
+display:flex;
+gap:6px;
+margin-top:10px;
+}
+
+.add{
+flex:1;
+background:#0869d9;
+color:white;
+border:0;
+padding:9px;
+border-radius:8px;
+font-size:11px;
+font-weight:bold;
+}
+
+.heart{
+width:38px;
+background:#f1f4f8;
+border:0;
+border-radius:8px;
+font-size:17px;
+}
+
+.academy{
+background:white;
+border-radius:19px;
+padding:17px;
+margin-top:25px;
+}
+
+.academyHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.academyHeader h2{
+font-size:20px;
+}
+
+.lesson{
+border:1px solid #e2e7ef;
+border-radius:13px;
+padding:14px;
+margin-top:10px;
+}
+
+.lessonTop{
+display:flex;
+justify-content:space-between;
+gap:10px;
+}
+
+.lesson h3{
+font-size:14px;
+}
+
+.lock{
+font-size:18px;
+}
+
+.lesson p{
+font-size:11px;
+color:#687487;
+line-height:1.5;
+margin:7px 0;
+}
+
+.lessonButton{
+width:100%;
+border:0;
+background:#0869d9;
+color:white;
+padding:10px;
+border-radius:9px;
+font-weight:bold;
+}
+
+.freeButton{
+background:#16a05a;
+}
+
+.componentGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:9px;
+margin-top:10px;
+}
+
+.component{
+background:#f7f9fc;
+border:1px solid #e3e8ef;
+padding:13px;
+border-radius:12px;
+}
+
+.componentIcon{
+font-size:25px;
+}
+
+.component b{
+display:block;
+font-size:12px;
+margin-top:5px;
+}
+
+.component small{
+font-size:9px;
+color:#718096;
+}
+
+.note{
+background:#fff8df;
+border:1px solid #efdf9c;
+padding:12px;
+border-radius:11px;
+font-size:11px;
+line-height:1.5;
+margin-top:10px;
+}
+
+.bottom{
+height:67px;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:white;
+border-top:1px solid #ddd;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:90;
+}
+
+.bottom button{
+border:0;
+background:none;
+font-size:20px;
+color:#667080;
+}
+
+.bottom span{
+display:block;
+font-size:9px;
+margin-top:2px;
+}
+
+.bottom .active{
+color:#0869d9;
+}
+
+.whatsapp{
+position:fixed;
+right:15px;
+bottom:83px;
+background:#18a957;
+color:white;
+padding:12px 16px;
+border-radius:30px;
+text-decoration:none;
+font-size:12px;
+font-weight:bold;
+z-index:95;
+box-shadow:0 5px 18px #0003;
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+inset:0;
+background:#0008;
+display:none;
+align-items:flex-end;
+justify-content:center;
+z-index:200;
+}
+
+.modal.show{
+display:flex;
+}
+
+.modalBox{
+background:white;
+width:100%;
+max-width:600px;
+max-height:90vh;
+overflow:auto;
+border-radius:22px 22px 0 0;
+padding:20px;
+animation:up .25s;
+}
+
+@keyframes up{
+from{transform:translateY(100%)}
+to{transform:translateY(0)}
+}
+
+.close{
+float:right;
+border:0;
+background:#f0f2f5;
+width:34px;
+height:34px;
+border-radius:50%;
+font-size:20px;
+}
+
+.modalBox h2{
+margin:8px 0 12px;
+font-size:21px;
+}
+
+.modalBox p{
+font-size:12px;
+line-height:1.6;
+color:#5e6978;
+margin-bottom:10px;
+}
+
+.payBox{
+background:#edf5ff;
+border:1px solid #cfe2ff;
+padding:16px;
+border-radius:14px;
+text-align:center;
+margin:14px 0;
+}
+
+.upi{
+font-size:17px;
+font-weight:bold;
+color:#0869d9;
+margin:8px 0;
+word-break:break-all;
+}
+
+.payAmount{
+font-size:28px;
+font-weight:bold;
+}
+
+.formInput{
+width:100%;
+padding:13px;
+border:1px solid #d9dfe8;
+border-radius:10px;
+margin:7px 0;
+outline:none;
+}
+
+.fullButton{
+width:100%;
+padding:13px;
+background:#0869d9;
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+margin-top:8px;
+}
+
+.pdfButton{
+display:block;
+text-align:center;
+text-decoration:none;
+background:#222d3d;
+color:white;
+padding:11px;
+border-radius:9px;
+margin-top:10px;
+font-size:12px;
+}
+
+.status{
+padding:12px;
+background:#fff8df;
+border-radius:10px;
+font-size:11px;
+margin-top:10px;
+}
+
+.drawer{
+position:fixed;
+inset:0;
+background:#0007;
+display:none;
+z-index:250;
+}
+
+.drawer.show{
+display:block;
+}
+
+.drawerPanel{
+width:82%;
+max-width:330px;
+height:100%;
+background:white;
+padding:20px;
+}
+
+.drawerPanel h2{
+margin:10px 0;
+}
+
+.drawerPanel button{
+width:100%;
+padding:14px 5px;
+border:0;
+background:none;
+text-align:left;
+font-weight:bold;
+border-bottom:1px solid #eee;
+}
+
+.toast{
+position:fixed;
+left:50%;
+bottom:85px;
+transform:translateX(-50%);
+background:#172033;
+color:white;
+padding:12px 17px;
+border-radius:10px;
+font-size:12px;
+z-index:500;
+}
+
+@media(min-width:700px){
+
+.hero{
+max-width:1150px;
+margin:auto;
+border-radius:0 0 25px 25px;
+}
+
+.products{
+grid-template-columns:repeat(4,1fr);
+}
+
+.modal{
+align-items:center;
+}
+
+.modalBox{
+border-radius:20px;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="top">
+
+<button class="menu" onclick="openMenu()">☰</button>
+
+<div class="logo">
+<div class="logoBox">IG</div>
+Ilyash Ganee
+</div>
+
+<button class="cartTop" onclick="openCart()">
+🛒
+<span class="cartNumber" id="cartCount">0</span>
+</button>
+
+</header>
+
+
+<section class="hero">
+
+<span class="heroLabel">
+PCB • SPARES • REPAIR
+</span>
+
+<h1>
+AC, Fridge & Washing Machine
+Repair Solution
+</h1>
+
+<p>
+Spare parts, PCB learning aur model-based
+repair information ek professional platform par.
+</p>
+
+<div class="heroButtons">
+
+<button class="primary"
+onclick="scrollToSection('shop')">
+Shop Now
+</button>
+
+<button class="secondary"
+onclick="scrollToSection('academy')">
+Repair Academy
+</button>
+
+</div>
+
+</section>
+
+
+<div class="searchBox">
+
+<input
+id="searchInput"
+placeholder="Search PCB, component, model, error code..."
+onkeyup="searchAll()"
+>
+
+<button onclick="searchAll()">🔎</button>
+
+</div>
+
+
+<main class="container">
+
+
+<section id="shop">
+
+<div class="sectionTitle">
+
+<h2>Shop by Category</h2>
+
+<button class="view"
+onclick="showToast('All categories opened')">
+View All
+</button>
+
+</div>
+
+
+<div class="categories">
+
+
+<div class="category"
+onclick="filterProducts('AC')">
+
+<div class="categoryIcon">❄️</div>
+<b>AC</b>
+<small>PCB & Parts</small>
+
+</div>
+
+
+<div class="category"
+onclick="filterProducts('Fridge')">
+
+<div class="categoryIcon">🧊</div>
+<b>Refrigerator</b>
+<small>Spare Parts</small>
+
+</div>
+
+
+<div class="category"
+onclick="filterProducts('Washer')">
+
+<div class="categoryIcon">🫧</div>
+<b>Washing Machine</b>
+<small>PCB & Parts</small>
+
+</div>
+
+
+<div class="category"
+onclick="filterProducts('Tools')">
+
+<div class="categoryIcon">🛠️</div>
+<b>Tools</b>
+<small>Testing Tools</small>
+
+</div>
+
+
+</div>
+
+
+<div class="promo">
+
+<h2>🔎 Model-First Repair Knowledge</h2>
+
+<p>
+Exact brand + model/series ke bina kisi error code,
+voltage ya resistance ko universal fact nahi maana jayega.
+</p>
+
+</div>
+
+
+<div class="sectionTitle">
+
+<h2>Featured Products</h2>
+
+<button class="view" onclick="showAllProducts()">
+See All
+</button>
+
+</div>
+
+
+<div class="products" id="products"></div>
+
+</section>
+
+
+<section id="academy" class="academy">
+
+<div class="academyHeader">
+
+<h2>🔧 Repair Academy</h2>
+
+<span>📚</span>
+
+</div>
+
+
+<div class="note">
+
+<b>Verified-first system:</b>
+Har model-specific lesson publish karne se pehle
+manufacturer documentation/service manual ko check
+kiya jayega. Fake error code ya fake reading nahi.
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lessonTop">
+
+<h3>🧩 PCB Repair — Basic</h3>
+
+<span class="lock">🔒</span>
+
+</div>
+
+<p>
+Basic se PCB components samjho:
+component kya karta hai, fault hone par kya symptoms
+aate hain, short/open ka concept aur testing method.
+</p>
+
+<button class="lessonButton"
+onclick="openPayment('PCB Repair Basic')">
+
+₹500 — Unlock Lesson
+
+</button>
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lessonTop">
+
+<h3>⚡ IPM / Inverter PCB — Advanced</h3>
+
+<span class="lock">🔒</span>
+
+</div>
+
+<p>
+Inverter PCB aur IPM section ki advanced learning.
+Exact model procedure ke saath content add kiya jayega.
+</p>
+
+<button class="lessonButton"
+onclick="openPayment('IPM Advanced')">
+
+₹500 — Unlock Lesson
+
+</button>
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lessonTop">
+
+<h3>❄️ AC Troubleshooting</h3>
+
+<span class="lock">🔒</span>
+
+</div>
+
+<p>
+Symptom → model → error code → testing → PCB section
+→ solution workflow.
+</p>
+
+<button class="lessonButton"
+onclick="openPayment('AC Troubleshooting')">
+
+₹500 — Unlock Lesson
+
+</button>
+
+</div>
+
+
+<h3 style="margin-top:20px;font-size:16px">
+🧰 Component Library
+</h3>
+
+
+<div class="componentGrid">
+
+
+<div class="component"
+onclick="openComponent('Resistor')">
+
+<div class="componentIcon">〰️</div>
+<b>Resistor</b>
+<small>Function • Fault • Test</small>
+
+</div>
+
+
+<div class="component"
+onclick="openComponent('Diode')">
+
+<div class="componentIcon">▶️</div>
+<b>Diode</b>
+<small>Function • Fault • Test</small>
+
+</div>
+
+
+<div class="component"
+onclick="openComponent('Capacitor')">
+
+<div class="componentIcon">⚡</div>
+<b>Capacitor</b>
+<small>Function • Fault • Test</small>
+
+</div>
+
+
+<div class="component"
+onclick="openComponent('Relay')">
+
+<div class="componentIcon">🔘</div>
+<b>Relay</b>
+<small>Function • Fault • Test</small>
+
+</div>
+
+
+<div class="component"
+onclick="openComponent('TRIAC')">
+
+<div class="componentIcon">🔺</div>
+<b>TRIAC</b>
+<small>Function • Fault • Test</small>
+
+</div>
+
+
+<div class="component"
+onclick="openComponent('Optocoupler')">
+
+<div class="componentIcon">🔗</div>
+<b>Optocoupler</b>
+<small>Function • Fault • Test</small>
+
+</div>
+
+
+<div class="component"
+onclick="openComponent('MOSFET')">
+
+<div class="componentIcon">🔋</div>
+<b>MOSFET</b>
+<small>Function • Fault • Test</small>
+
+</div>
+
+
+<div class="component"
+onclick="openComponent('IPM')">
+
+<div class="componentIcon">⚙️</div>
+<b>IPM</b>
+<small>Advanced</small>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<a class="whatsapp"
+href="https://wa.me/9192635730738?text=Hello%20Ilyash%20Ganee%2C%20mujhe%20repair%20help%20chahiye."
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+
+<nav class="bottom">
+
+<button class="active"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+🏠
+<span>Shop</span>
+
+</button>
+
+
+<button onclick="showToast('Wishlist')">
+
+♡
+<span>Wishlist</span>
+
+</button>
+
+
+<button onclick="openCart()">
+
+🛒
+<span>Cart</span>
+
+</button>
+
+
+<button onclick="openAccount()">
+
+👤
+<span>Account</span>
+
+</button>
+
+</nav>
+
+
+
+<!-- PAYMENT MODAL -->
+
+<div class="modal" id="paymentModal">
+
+<div class="modalBox">
+
+<button class="close"
+onclick="closeModal('paymentModal')">
+×
+</button>
+
+<h2>🔐 Unlock Paid Lesson</h2>
+
+<p id="paymentTitle">
+PCB Repair Basic
+</p>
+
+<div class="payBox">
+
+<div class="payAmount">₹500</div>
+
+<p>
+Pay using UPI
+</p>
+
+<div class="upi">
+iliyashganee48@oksbi
+</div>
+
+<p>
+UPI payment karne ke baad transaction ID neeche submit karein.
+</p>
+
+</div>
+
+
+<input
+class="formInput"
+id="transactionId"
+placeholder="Enter UPI Transaction ID"
+>
+
+
+<button class="fullButton"
+onclick="submitPayment()">
+
+Submit Payment for Verification
+
+</button>
+
+
+<div class="status">
+
+⚠️ Payment verification secure backend se hogi.
+Abhi demo me transaction ID submission form hai.
+Verification ke baad hi paid lesson unlock hoga.
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- COMPONENT MODAL -->
+
+<div class="modal" id="componentModal">
+
+<div class="modalBox">
+
+<button class="close"
+onclick="closeModal('componentModal')">
+×
+</button>
+
+<h2 id="componentTitle">
+Component
+</h2>
+
+<div id="componentContent"></div>
+
+<a class="pdfButton"
+href="#"
+onclick="showToast('PDF yahan add ki jayegi');return false;">
+
+📄 Open Component PDF
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- CART MODAL -->
+
+<div class="modal" id="cartModal">
+
+<div class="modalBox">
+
+<button class="close"
+onclick="closeModal('cartModal')">
+×
+</button>
+
+<h2>🛒 My Cart</h2>
+
+<div id="cartContent"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- ACCOUNT MODAL -->
+
+<div class="modal" id="accountModal">
+
+<div class="modalBox">
+
+<button class="close"
+onclick="closeModal('accountModal')">
+×
+</button>
+
+<h2>👤 My Account</h2>
+
+<p>
+Login/account system backend connect hone ke baad
+real orders, purchased lessons aur profile yahan dikhenge.
+</p>
+
+<input class="formInput" placeholder="Mobile number">
+
+<button class="fullButton"
+onclick="showToast('Account backend next stage me connect hoga')">
+
+Continue
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- DRAWER -->
+
+<div class="drawer" id="drawer">
+
+<div class="drawerPanel">
+
+<button onclick="closeMenu()">✕ Close</button>
+
+<h2>Ilyash Ganee</h2>
+
+<p>
+Appliance Spare Parts & Repair Academy
+</p>
+
+<button onclick="scrollToSection('shop');closeMenu()">
+🛒 Shop
+</button>
+
+<button onclick="scrollToSection('academy');closeMenu()">
+🔧 Repair Academy
+</button>
+
+<button onclick="openCart();closeMenu()">
+🛒 My Cart
+</button>
+
+<button onclick="openAccount();closeMenu()">
+👤 My Account
+</button>
+
+<button onclick="window.open('https://wa.me/919263570738','_blank')">
+💬 WhatsApp
+</button>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+const productsData = [
+
+{
+cat:"AC",
+icon:"❄️",
+name:"AC PCB Repair Basic",
+price:500,
+old:"₹700",
+type:"lesson"
+},
+
+{
+cat:"AC",
+icon:"⚡",
+name:"AC PCB Component Guide",
+price:499,
+old:"₹699",
+type:"lesson"
+},
+
+{
+cat:"AC",
+icon:"🔌",
+name:"IPM Advanced Repair",
+price:500,
+old:"₹700",
+type:"lesson"
+},
+
+{
+cat:"Fridge",
+icon:"🧊",
+name:"Refrigerator PCB Guide",
+price:399,
+old:"₹599",
+type:"lesson"
+},
+
+{
+cat:"Washer",
+icon:"🫧",
+name:"Washing Machine PCB Guide",
+price:399,
+old:"₹599",
+type:"lesson"
+},
+
+{
+cat:"Tools",
+icon:"🛠️",
+name:"Multimeter Testing Guide",
+price:199,
+old:"₹299",
+type:"lesson"
+}
+
+];
+
+
+let cart=[];
+
+
+function renderProducts(list=productsData){
+
+const box=document.getElementById("products");
+
+box.innerHTML="";
+
+list.forEach((p,index)=>{
+
+box.innerHTML+=`
+
+<article class="product">
+
+<div class="productImage">
+${p.icon}
+</div>
+
+<div class="productBody">
+
+<small>${p.cat}</small>
+
+<h3>${p.name}</h3>
+
+<span class="price">
+₹${p.price}
+</span>
+
+<span class="oldPrice">
+${p.old}
+</span>
+
+<div class="productButtons">
+
+<button class="add"
+onclick="addCart(${index})">
+
+Add to Basket
+
+</button>
+
+<button class="heart"
+onclick="wishlist('${p.name}')">
+
+♡
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+`;
+
+});
+
+}
+
+
+function addCart(index){
+
+cart.push(productsData[index]);
+
+updateCart();
+
+showToast("Added to basket 🛒");
+
+}
+
+
+function updateCart(){
+
+document.getElementById("cartCount").textContent=cart.length;
+
+}
+
+
+function openCart(){
+
+document.getElementById("cartModal").classList.add("show");
+
+let box=document.getElementById("cartContent");
+
+if(cart.length===0){
+
+box.innerHTML=`
+
+<p>Your basket is empty.</p>
+
+<button class="fullButton"
+onclick="closeModal('cartModal');scrollToSection('shop')">
+
+Continue Shopping
+
+</button>
+
+`;
+
+return;
+
+}
+
+
+let total=0;
+
+box.innerHTML="";
+
+cart.forEach((p)=>{
+
+total+=p.price;
+
+box.innerHTML+=`
+
+<div class="lesson">
+
+<b>${p.name}</b>
+
+<p>₹${p.price}</p>
+
+</div>
+
+`;
+
+});
+
+
+box.innerHTML+=`
+
+<h3 style="margin-top:15px">
+Total: ₹${total}
+</h3>
+
+<button class="fullButton"
+onclick="showToast('Secure checkout backend next stage me connect hoga')">
+
+Proceed to Checkout
+
+</button>
+
+`;
+
+}
+
+
+function wishlist(name){
+
+showToast("❤️ "+name+" wishlist me add hua");
+
+}
+
+
+function filterProducts(cat){
+
+renderProducts(
+productsData.filter(p=>p.cat===cat)
+);
+
+scrollToSection("shop");
+
+}
+
+
+function showAllProducts(){
+
+renderProducts();
+
+}
+
+
+function searchAll(){
+
+let q=document
+.getElementById("searchInput")
+.value
+.toLowerCase();
+
+if(!q){
+
+renderProducts();
+
+return;
+
+}
+
+let result=productsData.filter(p=>
+(p.name+" "+p.cat)
+.toLowerCase()
+.includes(q)
+);
+
+renderProducts(result);
+
+}
+
+
+function openPayment(title){
+
+document.getElementById("paymentTitle").textContent=
+title+" — ₹500";
+
+document.getElementById("paymentModal")
+.classList.add("show");
+
+}
+
+
+function submitPayment(){
+
+let id=document
+.getElementById("transactionId")
+.value
+.trim();
+
+if(!id){
+
+showToast("Transaction ID enter karo");
+
+return;
+
+}
+
+showToast("Payment verification ke liye submit ho gaya");
+
+document.getElementById("transactionId").value="";
+
+}
+
+
+const componentData={
+
+"Resistor":{
+title:"Resistor",
+html:`
+<p><b>Kaam:</b> Circuit me current/voltage ko control ya limit karne ke liye use hota hai.</p>
+<p><b>Fault symptoms:</b> Open resistor ya value change hone par circuit ka related section abnormal ho sakta hai.</p>
+<p><b>Testing:</b> Power OFF karke suitable resistance range me meter se check karein aur circuit influence ko dhyan me rakhein.</p>
+<p><b>Important:</b> Exact expected value component marking/schematic ke according verify karein.</p>
+`
+},
+
+"Diode":{
+title:"Diode",
+html:`
+<p><b>Kaam:</b> Current ko primarily ek direction me conduct karne ke liye use hota hai.</p>
+<p><b>Fault symptoms:</b> Short/open diode se power ya protection section malfunction kar sakta hai.</p>
+<p><b>Testing:</b> Power OFF/discharged circuit me diode-test function se check karein.</p>
+<p><b>Important:</b> In-circuit reading misleading ho sakti hai; zarurat par component isolate karke verify karein.</p>
+`
+},
+
+"Capacitor":{
+title:"Capacitor",
+html:`
+<p><b>Kaam:</b> Energy storage, filtering aur circuit functions me use hota hai.</p>
+<p><b>Fault symptoms:</b> Wrong capacitance, leakage ya short se circuit operation affected ho sakta hai.</p>
+<p><b>Testing:</b> Discharge ke baad capacitance/ESR test equipment aur component specification ke according check karein.</p>
+<p><b>Safety:</b> High-voltage capacitors ko properly discharge kiye bina touch/test na karein.</p>
+`
+},
+
+"Relay":{
+title:"Relay",
+html:`
+<p><b>Kaam:</b> Control signal ke through higher-load circuit ko switch karne ke liye use hota hai.</p>
+<p><b>Fault symptoms:</b> Contacts stuck/open ya coil fault se load switch nahi ho sakta.</p>
+<p><b>Testing:</b> Coil/contact specifications ko exact relay marking/datasheet se verify karein.</p>
+`
+},
+
+"TRIAC":{
+title:"TRIAC",
+html:`
+<p><b>Kaam:</b> AC load switching/control applications me use hota hai.</p>
+<p><b>Fault symptoms:</b> Shorted TRIAC load continuously ON ya control failure create kar sakta hai.</p>
+<p><b>Testing:</b> Exact device datasheet aur suitable semiconductor test procedure follow karein.</p>
+`
+},
+
+"Optocoupler":{
+title:"Optocoupler",
+html:`
+<p><b>Kaam:</b> Control side aur output side ke beech electrical isolation ke saath signal transfer karta hai.</p>
+<p><b>Fault symptoms:</b> Feedback/control circuit malfunction ho sakta hai.</p>
+<p><b>Testing:</b> Exact part number/datasheet ke according LED side aur output side verify karein.</p>
+`
+},
+
+"MOSFET":{
+title:"MOSFET",
+html:`
+<p><b>Kaam:</b> Electronic switching aur power conversion circuits me use hota hai.</p>
+<p><b>Fault symptoms:</b> Drain-source short/open fault se power section fail ho sakta hai.</p>
+<p><b>Testing:</b> Power OFF aur capacitor discharge ke baad exact part/datasheet ke according check karein.</p>
+`
+},
+
+"IPM":{
+title:"IPM — Advanced",
+html:`
+<p><b>Kaam:</b> Inverter systems me multiple power switching devices aur related control/protection functions ko integrate kar sakta hai.</p>
+<p><b>Fault:</b> IPM fault inverter system shutdown/protection ka reason ho sakta hai.</p>
+<p><b>Important:</b> IPM diagnosis model-specific hai. Live high-voltage testing sirf proper safety procedure aur service documentation ke saath karein.</p>
+`
+}
+
+};
+
+
+function openComponent(name){
+
+let d=componentData[name];
+
+document.getElementById("componentTitle").textContent=d.title;
+
+document.getElementById("componentContent").innerHTML=d.html;
+
+document.getElementById("componentModal")
+.classList.add("show");
+
+}
+
+
+function closeModal(id){
+
+document.getElementById(id)
+.classList.remove("show");
+
+}
+
+
+function openAccount(){
+
+document.getElementById("accountModal")
+.classList.add("show");
+
+}
+
+
+function openMenu(){
+
+document.getElementById("drawer")
+.classList.add("show");
+
+}
+
+
+function closeMenu(){
+
+document.getElementById("drawer")
+.classList.remove("show");
+
+}
+
+
+function scrollToSection(id){
+
+document.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function showToast(message){
+
+let t=document.createElement("div");
+
+t.className="toast";
+
+t.textContent=message;
+
+document.body.appendChild(t);
+
+setTimeout(()=>{
+t.remove();
+},2300);
+
+}
+
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+  </html>
